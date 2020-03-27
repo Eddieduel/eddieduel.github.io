@@ -1,139 +1,139 @@
-# Yummy Jekyll Theme
+# Prologue - Jekyll Theme
 
-A Simple, Bootstrap Based Theme. Especially for developers who like to show their projects on website and like to take notes. There are also some magical features to discover. 
+[![Gem Version](https://badge.fury.io/rb/jekyll-theme-prologue.svg)](https://badge.fury.io/rb/jekyll-theme-prologue)
 
-## [Live Demo](http://dongchuan.github.io/)
+![Prologue Theme](assets/images/screenshot.png "Prologue Theme Screenshot")
 
-Open issues if you find bugs or even have trouble installing jekyll or dependencies. :D
+This is Prologue, a simple, single page responsive site template from [HTML5 UP](https://html5up.net/prologue), now available as a blog-aware Jekyll theme from [Chris Bobbe](https://chrisbobbe.github.io). It features a clean, minimalistic design and a sticky sidebar with navigation-linked scrolling.
 
-Or contact: dongchuan55@gmail.com
+**Demo**: https://chrisbobbe.github.io/jekyll-theme-prologue/
 
-> Strongly suggest to fork and change project name to create your GitHub Pages instead of downloading it directly. Because in the future, I will develop many funny modules like 'footprint' to show your world wide trip. Could be easier to merge new features in the future.
+# Added Features
 
-## Notable Features
+* **Blogging and multi-page features you expect from Jekyll**
+* Compatible with GitHub Pages
+* **[Formspree.io](https://formspree.io/) contact form integration** - just add your email to the `_config.yml` and it works!
+* Build your homepage with **custom scrolly sections** in the _sections folder
+ * Set a **cover photo** for any section (not just the first), with alt text for screen readers and SEO
+* Add your **social profiles** easily in `_config.yml`.
+* Automatic search engine optimization (SEO) **meta tags** based on info you provide in `_config.yml` and frontmatter
+* **Google Analytics** built-in; just put your [Tracking ID](https://support.google.com/analytics/answer/1008080?hl=en) in `_config.yml` as `google_analytics`
+* Custom **404 page** (called 404.html; to activate, move it to your project directory).
 
-* Compatible with Jekyll 3.x and GitHub Pages
-* Based on Bootstrap
-* [Github Module](http://dongchuan.github.io/open-source) to show your popular projects in a single page and on sidebar automatically. (Datas are retreived by github metadata instead of by api calls, so no delay) 
-* [Post Module](http://dongchuan.github.io/blog) to show all your posts with timeline
-* [Bookmark Module](http://dongchuan.github.io/bookmark) to establish a quick mark about all libs/tools/books you like to use.
-* [Post Navigation Module](http://dongchuan.github.io/css/2016/04/22/CSS-Animation.html) to generat a quick directory of your post by titles/subtitles automatically.
-* Support [Disqus Comment](https://disqus.com/home/explore/)
-* Support [Google Analytics](https://analytics.google.com/analytics/web/)
+# Installation
 
-Features in future:
-* A Footprint module to show all your travel around the world
-* Feature to share. (Facebook, twitter, evernote and so on)
-* (Not sure) A embeded todo list. (Not sure) to travel, to complete, to do for your parents, etc. To do in life!
-* Creative ideas to discuss with you :P
+There are two ways to get started (choose one):
 
-## Install and setup
+1. **Install the [jekyll-theme-prologue gem](https://rubygems.org/gems/jekyll-theme-prologue).** Instructions are in the [Jekyll docs](https://jekyllrb.com/docs/themes/#installing-a-theme). After running `bundle install`, you can find the theme files by running `open $(bundle show jekyll-theme-prologue)`.  A sample working `_config.yml` file ships with the gem; if you want to activate it, move it to your project's root directory. It will do nothing until you move it there, replacing the default `_config.yml` file.
+2. **Fork or clone the [GitHub repository](https://github.com/chrisbobbe/jekyll-theme-prologue).** If you want to use [GitHub Pages](https://pages.github.com/), create a branch named `gh-pages`, and replace `theme: jekyll-theme-prologue` with `remote_theme: chrisbobbe/jekyll-theme-prologue` in the provided `_config.yml` ([GitHub Pages now supports open-source themes on GitHub](https://github.com/blog/2464-use-any-theme-with-github-pages)).
 
-Before using it, you may need [Bower](http://bower.io/) and [Bundler](http://bundler.io/) on your local to install dependencies.
+Next, make sure that `url` and `base_url` are set for your own website in `_config.yml`. For local testing, make them both blank. Add a photo avatar to your project, then set `avatar: path/to/your/avatar.jpg` in _config.yml; for example, `avatar: assets/images/avatar.jpg` (48x48 pixels works best). Poke around the sample `_config.yml` file to see how you can add your social profiles.
 
-1. Fork code and clone
-2. Run `bower install` to install all dependencies in [bower.json](https://github.com/DONGChuan/DONGChuan.github.io/blob/master/bower.json)
-3. Run `bundle install` to install all dependencies in [Gemfile](https://github.com/DONGChuan/DONGChuan.github.io/blob/master/Gemfile)
-4. Update `_config.yml` with your own settings.
-5. Add posts in `/_posts`
-6. Commit to your own Username.github.io repository.
-7. Then come back to star this theme!
+# Build your homepage
 
-> When install dependencies by bundler or gem, you may have some errors depending on your environment.
+1. **Your `_config.yml` file must include the following line or your homepage won't work**: `collections: [sections]`. This tells Jekyll to look in the _sections folder (which you will create) for your content and render it all on one page.
 
-> Error about `json`. Check response of [Massimo Fazzolari on Stackoverflow](http://stackoverflow.com/questions/8100891/the-json-native-gem-requires-installed-build-tools) to quick fix your problem. (Please also use latest version instead of 1.9.3 mentioned in the response)
-  
-> Error about `jekyll-paginate`. Please check [here](http://stackoverflow.com/questions/35401566/dont-have-jekyll-paginate-or-one-of-its-dependencies-installed)
+2. **Create a `_sections` folder** in your project's root directory and start adding content to your homepage. Set a cover photo in any of the sections by adding `cover-photo: path/to/photo.jpg` and `cover-photo-alt: your alt text here` to the section's frontmatter. Sample content is provided in the [GitHub repository](https://github.com/chrisbobbe/jekyll-theme-prologue/tree/master/_sections).
 
-> Error about `SSL_connect`. Please check [here](http://stackoverflow.com/questions/15305350/gem-install-fails-with-openssl-failure) and [here](http://railsapps.github.io/openssl-certificate-verify-failed.html)
+All new sections should be added as html or Markdown documents in the `_sections` folder. The following section variables can be set with [frontmatter](https://jekyllrb.com/docs/frontmatter/):
+- `title` (required)
+- `order` (required; orders the sequence of sections on the page. Example: `1`)
+- `cover-photo` (optional; sets a background image for the section. Example: `assets/images/banner.jpg`)
+- `cover-photo-alt` (required if using a cover photo. Describes the photo for screen readers and SEO; e.g. "Dome of Light art installation, Kaohsiung, Taiwan")
+- `icon` (optional; see [Font Awesome](https://fontawesome.com/icons) for icon codes. Example: `fa-github`)
+- `icon-style` (optional; "solid" is default, "regular" for outline style icons, or "brands" for logos)
+- `auto-header` (optional; "use-title" is default, "none" for no header, or custom header text)
+- `hide` (optional; if `true`, the section won't appear)
 
-> For the moment, when you test on your local, you need to keep internet connection. Bug will be fixed soon.
+# Start blogging!
 
-## How to use
-
-#### Create a new post
-
-Create a `.md` file inside `_posts` folder.
-
-Name the file according to the standard jekyll format.
-
-```
-2016-01-19-i-love-yummy.md
-```
-
-Write the Front Matter and content in the file.
+Jekyll has great resources to get you started writing blog posts. Check out [this Jekyll Docs page](https://jekyllrb.com/docs/posts/) first. When you've written a post or two, copy the following into a new file in your project directory called `blog.html`, and you'll see a link to your blog from the homepage:
 
 ```
 ---
-layout: post
-title: Post title
-category: Category
-tags: [tag1, tag2]
+layout: blog
+title: My Blog
 ---
 ```
 
-Please find examples [here](https://github.com/DONGChuan/DONGChuan.github.io/tree/master/_posts)
+-- and that's it!
 
-> Jekyll supports different structure of repository. You could just create as many folders as you want under _posts. Then jekyll will look through all folders/subfolders to find your posts. So cool, right? :D
+# Add a page
 
-#### [Post Navigation Module](http://dongchuan.github.io/css/2016/04/22/CSS-Animation.html)
-
-When writing post, please always follow this format:
+To add a page, just make a new .html or .md file in your project directory. There's an example called `reading-list` [provided](https://github.com/chrisbobbe/jekyll-theme-prologue/blob/master/reading-list.md) with the GitHub repository. Add this frontmatter:
 
 ```
-Description about this post, blablabla
-
-## Title A
-
-### Title A-1
-
-### Title A-2
-
-## Title B
-
-### Title B-1
-
+---
+title: My New Page
+layout: page
+---
 ```
 
-So, Title A, A-1, A-2, Title B, B-1 will be detected and created as a directory
+You can also set these page variables in the frontmatter, if you want:
+- `subtitle`
+- `order` (orders links in the nav menu, e.g. `1`)
+- `icon` (optional; see [Font Awesome](https://fontawesome.com/icons) for icon codes. Example: `fa-github`)
+- `icon-style` (optional; "solid" is default, "regular" for outline style icons, or "brands" for logos)
+- `hide` (optional; if `true`, a link won't appear in the nav menu. All this does is remove the nav link; your page will still be served to anyone who has the URL.)
 
-For example, [a demo post](https://github.com/DONGChuan/DONGChuan.github.io/edit/master/_posts/2016-04-22-CSS-Animation.md)
+**This same set of frontmatter variables (including `title`) can also be set in `index.md` and `blog.html`.** You may want to give them titles, or hide the homepage link with `hide: true` if the homepage is the only page.
 
-But if you do not like it or your post is quite short. You want to hide this navigation to make your post occupy your full screen. You just need to set **no-post-nav:true** in the Front Matter of the post where you want to hide this feature :D
+For advanced SEO, this theme also lets you add `permalink` (see [Jekyll Docs](https://jekyllrb.com/docs/permalinks/#where-to-configure-permalinks)), `robots` (string, e.g. "noindex, nofollow"), and `canonical` (boolean; true is default) to any page or post.
 
-#### [Github Module](http://dongchuan.github.io/open-source)
+# Contributing
 
-This module will get automatically all your repository information from github. But to test on your local, you must keep internet connection. 
-In the future, it will also show the repositories you contributed a lot and the ones of your organization.
+Please feel free to submit issues and feature requests!
 
-#### [Bookmark Module](http://dongchuan.github.io/bookmark)
+# Credits
 
-To add new marks, you only need to edit [bookmark.md](https://github.com/DONGChuan/Yummy-Jekyll/blob/master/bookmark.md).
+Thanks to @andrewbanchich for his many Jekyll adaptations of HTML5 UP's elegant themes, which helped and inspired me, and of course many thanks to HTML5 UP.
 
-#### [Customize About Page](http://dongchuan.github.io/about)
+Original README from HTML5 UP:
 
-Feel free to customize about.me page to show yourself. You only need to modify [about.md](https://github.com/DONGChuan/Yummy-Jekyll/blob/master/about.md) and [about.html](https://github.com/DONGChuan/Yummy-Jekyll/blob/master/_includes/about.html)
+```
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
-## ToDo
 
-- [ ] List posts by a specified tag
-- [ ] New module FootPrint to show your world around trips
-- [ ] Show projects from your orgnization on github. (Siderbar, in open-source page)
-- [ ] To fix bug - could only test on local with internet connected.
+This is Prologue, a simple, single page responsive site template. It features a
+clean, minimalistic design and a sticky sidebar with navigation-linked scrolling.
 
-## Contributor
+Demo content images* are courtesy of the ridiculously talented Felicia Simion. Check out
+more of her amazing work over at deviantART:
 
-* [DONGChuan](https://github.com/DONGChuan)
-* [Mojtaba Koosej](https://github.com/mkoosej)
-* [shahsaurabh0605](https://github.com/shahsaurabh0605)
-* [Z-Beatles](http://www.waynechu.cn/)
-* [LM450N](https://github.com/LM450N)
-* [XhmikosR](https://github.com/XhmikosR)
+http://ineedchemicalx.deviantart.com/
 
-## License
+(* = Not included! Only meant for use with my own on-site demo, so please do NOT download
+and/or use any of Felicia's work without her explicit permission!)
 
-The Apache License 2.0
+Demo banner images* courtesy of Unsplash, a radtastic collection of CC0 (public domain)
+images you can use for pretty much whatever.
 
-Copyright (c) 2016 DONG Chuan
+(* = Not included)
 
-Check [LICENSE](https://github.com/DONGChuan/DONGChuan.github.io/blob/master/LICENSE) file and [official website](http://www.apache.org/licenses/LICENSE-2.0) for details
+AJ
+aj@lkn.io | @ajlkn
+
+PS: Not sure how to get that contact form working? Give formspree.io a try (it's awesome).
+
+
+Credits:
+
+	Demo Images:
+		Felicia Simion (ineedchemicalx.deviantart.com)
+		Unsplash (unsplash.com)
+
+	Icons:
+		Font Awesome (fortawesome.github.com/Font-Awesome)
+
+	Other
+		jQuery (jquery.com)
+		html5shiv.js (@afarkas @jdalton @jon_neal @rem)
+		CSS3 Pie (css3pie.com)
+		background-size polyfill (github.com/louisremi)
+		Respond.js (j.mp/respondjs)
+		jquery.scrolly (@ajlkn)
+		jquery.scrollzer (@ajlkn)
+		Skel (skel.io)
+```

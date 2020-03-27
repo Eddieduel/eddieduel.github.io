@@ -1,4 +1,4 @@
-_site
+/_site
+*.gem
 .sass-cache
-.jekyll-metadata
-.idea
+Gemfile.lock
